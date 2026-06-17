@@ -63,7 +63,18 @@ import { Image } from "astro:assets";
       ))}
 
     </div>
+    <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 pb-20 pt-50">
 
+    <CTA
+      title={cta.title}
+      description={cta.description}
+      buttonText={cta.buttonText}
+      buttonLink={cta.buttonLink}
+    />
+
+  </section>
+    
   </main>
 
 </MainLayout>
