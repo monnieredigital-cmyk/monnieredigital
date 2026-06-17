@@ -1,0 +1,90 @@
+﻿---
+import { Image } from "astro:assets";
+const {
+  title,
+  description,
+  primaryButton,
+  secondaryButton,
+  image,
+  badge,
+  proof,
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-stone-50">
+
+  <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-0 items-center">
+
+    <!-- TEXTE -->
+    <div>
+
+      <!-- BADGE -->
+      {badge && (
+        <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          {badge}
+        </div>
+      )}
+
+      <!-- TITRE -->
+      <h1 class="text-4xl md:text-5xl font-serif leading-tight mb-6">
+        {title}
+      </h1>
+
+      <!-- DESCRIPTION -->
+      <p class="text-stone-600 text-lg mb-8 leading-relaxed">
+        {description}
+      </p>
+
+      <!-- PROOF / CREDIBILITY -->
+      {proof && (
+        <div class="mb-8 text-sm text-stone-500 border-l-2 border-stone-300 pl-4">
+          {proof}
+        </div>
+      )}
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-4">
+
+        <a
+          href={primaryButton.link}
+          class="bg-black text-white px-6 py-3 rounded-lg text-center font-medium hover:opacity-90 transition"
+        >
+          {primaryButton.text}
+        </a>
+
+        <a
+          href={secondaryButton.link}
+          class="border border-stone-300 px-6 py-3 rounded-lg text-center font-medium hover:bg-stone-100 transition"
+        >
+          {secondaryButton.text}
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGE / SCREENSHOT -->
+    <div class="relative">
+
+      <!-- mockup container -->
+      <div class="relative md:scale-105 md:translate-x-4 rounded-2xl shadow-2xl border border-stone-200 bg-white">
+
+        <Image
+          src={image.src}
+          alt={image.alt}
+          class="w-full object-cover"
+          loading="eager"
+        />
+
+      </div>
+
+      <!-- badge confiance sur image -->
+      <div class="absolute -bottom-4 -right-4 bg-white shadow-lg rounded-xl px-4 py-3 text-sm border border-stone-200">
+        ⭐ Site réel utilisé par une activité de chambres d’hôtes
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

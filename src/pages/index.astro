@@ -1,0 +1,37 @@
+﻿---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProblemSolution from "../components/sections/ProblemSolution.astro";
+import About from "../components/sections/About.astro";
+import Services from "../components/sections/Services.astro";
+import PourquoiMoi from "../components/sections/PourquoiMoi.astro";
+import { cta } from "../data/cta";
+import Hero from "../components/home/Hero.astro";
+import Testimonials from "../components/home/Testimonials.astro";
+import { hero } from "../data/home";
+---
+
+<MainLayout title="Agence web" description="Sites web modernes et SEO">
+
+  <Hero {...hero} />
+
+  <ProblemSolution />
+  <Services/>
+  <About/>
+  <PourquoiMoi />
+  <Testimonials />
+  
+
+
+ <!-- CTA -->
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+
+    <cta
+      title={cta.title}
+      description={cta.description}
+      buttonText={cta.buttonText}
+      buttonLink={cta.buttonLink}
+    />
+
+  </section>
+
+</MainLayout>

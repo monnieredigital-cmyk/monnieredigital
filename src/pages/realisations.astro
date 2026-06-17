@@ -1,0 +1,69 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { projects } from "../data/projects";
+import CTA from "../components/ui/CTA.astro";
+import { cta } from "../data/cta";
+import { Image } from "astro:assets";
+---
+
+<MainLayout
+  title="Mes réalisations"
+  description="Découvrez les sites web que j'ai créés pour artisans et entreprises locales."
+>
+
+  <!-- HERO -->
+  <header class="text-center py-20 px-6">
+    <h1 class="text-4xl md:text-6xl font-serif mb-4">
+      Mes réalisations
+    </h1>
+
+    <p class="text-stone-600 max-w-2xl mx-auto text-lg">
+      Quelques exemples de sites web conçus pour des artisans et entreprises locales.
+    </p>
+  </header>
+
+  <!-- GRID -->
+  <main class="max-w-6xl mx-auto px-6 pb-24">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2  gap-8">
+
+      {projects.map((project) => (
+        <article class="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+            <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-amber-600 hover:underline"
+          >
+
+          <!-- IMAGE -->
+          <div class="h-56 overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover hover:scale-105 transition duration-500"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- CONTENT -->
+          <div class="p-5">
+            <h2 class="text-xl font-serif mb-2">
+              {project.title}
+            </h2>
+
+            <p class="text-stone-600 text-sm leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+          </a>
+          
+
+        </article>
+      ))}
+
+    </div>
+
+  </main>
+
+</MainLayout>
