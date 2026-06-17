@@ -1,5 +1,6 @@
 ﻿---
 import { Image } from "astro:assets";
+
 const {
   title,
   description,
@@ -11,79 +12,64 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-stone-50">
+<section class="relative w-full overflow-hidden">
 
-  <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-0 items-center">
+  <!-- IMAGE FULL WIDTH -->
+  <div class="relative w-full h-[80vh] md:h-[90vh]">
 
-    <!-- TEXTE -->
-    <div>
+    <Image
+      src={image.src}
+      alt={image.alt}
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
 
-      <!-- BADGE -->
+    <!-- GRADIENT POUR LISIBILITÉ -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- TEXTE EN BAS DE L'IMAGE -->
+    <div class="absolute bottom-0 left-0 w-full px-6 md:px-16 pb-10 md:pb-14 text-white">
+
       {badge && (
-        <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm mb-4">
           {badge}
         </div>
       )}
 
-      <!-- TITRE -->
-      <h1 class="text-4xl md:text-5xl font-serif leading-tight mb-6">
+      <h1 class="text-3xl md:text-5xl font-serif leading-tight mb-4 max-w-3xl">
         {title}
       </h1>
 
-      <!-- DESCRIPTION -->
-      <p class="text-stone-600 text-lg mb-8 leading-relaxed">
+      <p class="text-white/80 text-base md:text-lg max-w-2xl">
         {description}
       </p>
 
-      <!-- PROOF / CREDIBILITY -->
       {proof && (
-        <div class="mb-8 text-sm text-stone-500 border-l-2 border-stone-300 pl-4">
+        <div class="mt-4 text-sm text-white/70 border-l border-white/30 pl-4 max-w-xl">
           {proof}
         </div>
       )}
 
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row gap-4">
-
-        <a
-          href={primaryButton.link}
-          class="bg-black text-white px-6 py-3 rounded-lg text-center font-medium hover:opacity-90 transition"
-        >
-          {primaryButton.text}
-        </a>
-
-        <a
-          href={secondaryButton.link}
-          class="border border-stone-300 px-6 py-3 rounded-lg text-center font-medium hover:bg-stone-100 transition"
-        >
-          {secondaryButton.text}
-        </a>
-
-      </div>
-
     </div>
 
-    <!-- IMAGE / SCREENSHOT -->
-    <div class="relative">
+  </div>
 
-      <!-- mockup container -->
-      <div class="relative md:scale-105 md:translate-x-4 rounded-2xl shadow-2xl border border-stone-200 bg-white">
+  <!-- BOUTONS CENTRÉS SOUS L'IMAGE -->
+  <div class="flex flex-col sm:flex-row justify-center gap-4 py-10 bg-white">
 
-        <Image
-          src={image.src}
-          alt={image.alt}
-          class="w-full object-cover"
-          loading="eager"
-        />
+    <a
+      href={primaryButton.link}
+      class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
+    >
+      {primaryButton.text}
+    </a>
 
-      </div>
-
-      <!-- badge confiance sur image -->
-      <div class="absolute -bottom-4 -right-4 bg-white shadow-lg rounded-xl px-4 py-3 text-sm border border-stone-200">
-        ⭐ Site réel utilisé par une activité de chambres d’hôtes
-      </div>
-
-    </div>
+    <a
+      href={secondaryButton.link}
+      class="border border-stone-300 px-6 py-3 rounded-lg font-medium hover:bg-stone-100 transition"
+    >
+      {secondaryButton.text}
+    </a>
 
   </div>
 

@@ -1,5 +1,5 @@
-import site1 from "../assets/accueil/hero-site.jpg";
-import site2 from "../assets/accueil/electricien.png";
+import site1 from "../assets/projects/labassemonniere.jpg";
+import site2 from "../assets/projects/electricien.png";
 
 export const projects = [
   {

@@ -1,4 +1,4 @@
-import heroImage from "../assets/accueil/hero-site.jpg";
+import heroImage from "../assets/accueil/hero.png";
 
 export const hero = {
   title: "Des sites web qui inspirent confiance et donnent envie de réserver",
@@ -22,7 +22,7 @@ export const hero = {
 
    image: {
     src: heroImage,
-    alt: "Capture du site La Basse Monnière",
+    alt: "Femme développeuse",
   },
 };
 
